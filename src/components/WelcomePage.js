@@ -25,7 +25,7 @@ export default function WelcomePage() {
   );
 }
 
-// Begin styling
+// Begin styling:
 
 const Head = styled.header`
 display: flex;

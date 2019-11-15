@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Axios from "axios";
 import CharacterCard from "./CharacterCard";
+import styled from 'styled-components';
 
 export default function CharacterList(props) {
   // TODO: Add useState to track data from useEffect
@@ -19,10 +20,19 @@ export default function CharacterList(props) {
   }, [setCharacters]);
 
   return (
-    <section className="character-list">
+    <List>
       {characters.map(chr => (
         <CharacterCard key={chr.id} character={chr}/>
       ))}
-    </section>
+    </List>
   );
 }
+
+
+// Begin styling:
+
+const List = styled.section`
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+`;
