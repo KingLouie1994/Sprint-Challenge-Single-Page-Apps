@@ -6,7 +6,7 @@ import styled from 'styled-components';
 export default function CharacterList(props) {
   // TODO: Add useState to track data from useEffect
 
-  const { characters, setCharacters } = props;
+  const {characters, setCharacters, setServerError} = props;
   useEffect(() => {
     // TODO: Add API Request here - must run in `useEffect`
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
@@ -15,9 +15,9 @@ export default function CharacterList(props) {
       setCharacters(response.data.results)
     })
     .catch(err => {
-      console.log(err);
+      setServerError(err.message)
     })
-  }, [setCharacters]);
+  }, [setCharacters, setServerError]);
 
   return (
     <List>
